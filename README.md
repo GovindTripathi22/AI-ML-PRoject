@@ -108,3 +108,24 @@ npm run build
 # Preview production build locally
 npm run preview
 ```
+
+### Running Tests & Linting
+```bash
+# Run unit and integration tests (Vitest)
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run static analysis and linter (oxlint)
+npm run lint
+```
+
+### Backend API Adapter & Configuration
+TripShield includes an environment-aware API Client Adapter (`src/services/apiClient.ts`).
+- **Standalone Mode (Default)**: Runs without external dependencies using seeded realistic mock data and `localStorage` persistence.
+- **Connected Mode**: To connect TripShield to a live FastAPI or REST backend, copy `.env.example` to `.env` and set:
+  ```env
+  VITE_API_BASE_URL=http://localhost:8000
+  ```
+

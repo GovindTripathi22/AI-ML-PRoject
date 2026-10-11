@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { AgentStep } from '../types';
 import { Play, CheckCircle2, Loader2, Code, ChevronDown, ChevronUp } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 
 interface AgentActivityLogProps {
   incidentId: string;

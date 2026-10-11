@@ -10,7 +10,7 @@ import {
   History, 
   RotateCcw 
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 
 export const Navbar: React.FC = () => {
   const { resetAllSystemData } = useApp();

@@ -6,7 +6,7 @@ import {
   ShieldAlert, 
   X 
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 import type { Traveller } from '../types';
 import { Badge, BookingStatusBadge } from '../components/Badge';
 

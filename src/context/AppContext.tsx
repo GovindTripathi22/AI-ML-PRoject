@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import type { 
   Incident, 
@@ -10,36 +10,8 @@ import type {
   ItineraryChange 
 } from '../types';
 import { StorageService } from '../services/storageService';
-
-interface Toast {
-  id: string;
-  message: string;
-  type: 'info' | 'success' | 'warning' | 'error';
-}
-
-interface AppContextType {
-  incidents: Incident[];
-  travellers: Traveller[];
-  bookings: Booking[];
-  recoveryPlans: RecoveryPlan[];
-  auditLogs: AuditLogEntry[];
-  isLoading: boolean;
-  toasts: Toast[];
-  showToast: (message: string, type?: 'info' | 'success' | 'warning' | 'error') => void;
-  removeToast: (id: string) => void;
-  refreshData: () => Promise<void>;
-  updatePlanStatus: (
-    planId: string, 
-    status: PlanStatus, 
-    comment?: string, 
-    editedChanges?: ItineraryChange[],
-    editedCostDiff?: number
-  ) => Promise<void>;
-  replayIncidentAnalysis: (incidentId: string) => Promise<void>;
-  resetAllSystemData: () => Promise<void>;
-}
-
-const AppContext = createContext<AppContextType | undefined>(undefined);
+import { AppContext } from './context';
+import type { Toast } from './context';
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [incidents, setIncidents] = useState<Incident[]>([]);
@@ -85,8 +57,41 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   }, [showToast]);
 
   useEffect(() => {
-    refreshData();
-  }, [refreshData]);
+    let ignore = false;
+
+    const loadInitialState = async () => {
+      try {
+        const [incs, trvs, bkgs, plans, logs] = await Promise.all([
+          StorageService.getIncidents(),
+          StorageService.getTravellers(),
+          StorageService.getBookings(),
+          StorageService.getRecoveryPlans(),
+          StorageService.getAuditLogs()
+        ]);
+        if (!ignore) {
+          setIncidents(incs);
+          setTravellers(trvs);
+          setBookings(bkgs);
+          setRecoveryPlans(plans);
+          setAuditLogs(logs);
+        }
+      } catch {
+        if (!ignore) {
+          showToast('Failed to load operations state from storage.', 'error');
+        }
+      } finally {
+        if (!ignore) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    loadInitialState();
+
+    return () => {
+      ignore = true;
+    };
+  }, [showToast]);
 
   const updatePlanStatus = async (
     planId: string, 
@@ -189,12 +194,4 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       {children}
     </AppContext.Provider>
   );
-};
-
-export const useApp = (): AppContextType => {
-  const context = useContext(AppContext);
-  if (!context) {
-    throw new Error('useApp must be used within an AppProvider');
-  }
-  return context;
 };

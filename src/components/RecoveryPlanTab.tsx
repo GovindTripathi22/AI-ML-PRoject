@@ -3,7 +3,7 @@ import type { RecoveryPlan, Traveller, ItineraryChange } from '../types';
 import { PlanStatusBadge, Badge } from './Badge';
 import { Modal } from './Modal';
 import { Check, X, Edit3, ArrowRight } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 
 interface RecoveryPlanTabProps {
   plans: RecoveryPlan[];

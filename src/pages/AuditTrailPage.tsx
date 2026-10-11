@@ -6,7 +6,7 @@ import {
   User, 
   Bot 
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 import { Badge } from '../components/Badge';
 
 export const AuditTrailPage: React.FC = () => {

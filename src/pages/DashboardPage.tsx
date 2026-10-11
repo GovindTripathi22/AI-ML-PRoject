@@ -10,7 +10,7 @@ import {
   ArrowUpRight,
   RefreshCw 
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 import { SeverityBadge, IncidentStatusBadge } from '../components/Badge';
 
 export const DashboardPage: React.FC = () => {

@@ -226,6 +226,15 @@ export const StorageService = {
     }
   },
 
+  getRecoveryPlansForIncident: async (incidentId: string): Promise<RecoveryPlan[]> => {
+    return StorageService.getRecoveryPlans(incidentId);
+  },
+
+  exportAuditLogsJson: async (): Promise<string> => {
+    const logs = await StorageService.getAuditLogs();
+    return JSON.stringify(logs, null, 2);
+  },
+
   resetAllData: (): void => {
     localStorage.setItem(STORAGE_KEYS.INCIDENTS, JSON.stringify(INITIAL_INCIDENTS));
     localStorage.setItem(STORAGE_KEYS.TRAVELLERS, JSON.stringify(INITIAL_TRAVELLERS));

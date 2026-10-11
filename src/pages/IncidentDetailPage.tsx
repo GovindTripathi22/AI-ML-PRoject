@@ -8,7 +8,7 @@ import {
   CheckSquare, 
   AlertTriangle 
 } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../context';
 import { SeverityBadge, IncidentStatusBadge } from '../components/Badge';
 import { DependencyGraph } from '../components/DependencyGraph';
 import { EvidenceTab } from '../components/EvidenceTab';
