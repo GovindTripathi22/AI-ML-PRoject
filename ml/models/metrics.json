@@ -1,0 +1,176 @@
+{
+  "classes": [
+    "Facility / Structural Safety Order",
+    "Labour Stoppage / Ground Strike",
+    "Natural Hazard / Flood & Landslide",
+    "Runway / ATC NOTAM Closure",
+    "Severe Weather / Cyclone"
+  ],
+  "baseline": {
+    "modelName": "Baseline (TF-IDF + LogReg)",
+    "accuracy": 1.0,
+    "macroPrecision": 1.0,
+    "macroRecall": 1.0,
+    "macroF1": 1.0,
+    "latencyMs": 0.02,
+    "throughputSec": 54109,
+    "classMetrics": [
+      {
+        "className": "Facility / Structural Safety Order",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 966
+      },
+      {
+        "className": "Labour Stoppage / Ground Strike",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1020
+      },
+      {
+        "className": "Natural Hazard / Flood & Landslide",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1020
+      },
+      {
+        "className": "Runway / ATC NOTAM Closure",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1005
+      },
+      {
+        "className": "Severe Weather / Cyclone",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 989
+      }
+    ],
+    "confusionMatrix": [
+      [
+        966,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1020,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1020,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1005,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        989
+      ]
+    ]
+  },
+  "production": {
+    "modelName": "Production: LightGBM Multi-Feature Ensemble",
+    "accuracy": 1.0,
+    "macroPrecision": 1.0,
+    "macroRecall": 1.0,
+    "macroF1": 1.0,
+    "latencyMs": 0.3,
+    "throughputSec": 3310,
+    "classMetrics": [
+      {
+        "className": "Facility / Structural Safety Order",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 966
+      },
+      {
+        "className": "Labour Stoppage / Ground Strike",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1020
+      },
+      {
+        "className": "Natural Hazard / Flood & Landslide",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1020
+      },
+      {
+        "className": "Runway / ATC NOTAM Closure",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1005
+      },
+      {
+        "className": "Severe Weather / Cyclone",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 989
+      }
+    ],
+    "confusionMatrix": [
+      [
+        966,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1020,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1020,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1005,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        989
+      ]
+    ]
+  },
+  "timestamp": "2026-10-11 19:08:26"
+}

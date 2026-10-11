@@ -9,6 +9,10 @@
     "lint": "oxlint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "train:data": "python ml/data_generator.py",
+    "train:ml": "python ml/train.py",
+    "infer:ml": "python ml/infer.py",
+    "test:ml": "pytest ml/tests/ -v",
     "preview": "vite preview"
   },
   "dependencies": {
