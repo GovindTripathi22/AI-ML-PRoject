@@ -230,6 +230,8 @@ export const IncidentDetailPage: React.FC = () => {
       {activeTab === 'evidence' && (
         <EvidenceTab
           snippets={relevantSnippets}
+          flightNumber={affectedBookings.find(b => b.type === 'Flight')?.serviceName || '6E-2134'}
+          tailNumber={affectedBookings.find(b => b.type === 'Flight')?.reference.includes('6E') ? 'VT-IKR' : 'VT-EXQ'}
         />
       )}
 

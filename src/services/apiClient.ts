@@ -133,5 +133,96 @@ export const ApiClient = {
       }
     }
     return StorageService.addAuditLog(log);
+  },
+
+  verifyForensics: async (params: {
+    airlineClaimedReason: string;
+    metarWindKts?: number;
+    metarVisibilityKm?: number;
+    inboundTailDelayMins?: number;
+    runwayPeerDeparturesOnTimePct?: number;
+    jurisdiction?: string;
+  }) => {
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/forensics/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            airline_claimed_reason: params.airlineClaimedReason,
+            metar_wind_kts: params.metarWindKts ?? 12.0,
+            metar_visibility_km: params.metarVisibilityKm ?? 10.0,
+            inbound_tail_delay_mins: params.inboundTailDelayMins ?? 15,
+            runway_peer_departures_on_time_pct: params.runwayPeerDeparturesOnTimePct ?? 85.0,
+            jurisdiction: params.jurisdiction ?? 'DGCA'
+          })
+        });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('TripShield API: Falling back to local forensics evaluation', err);
+      }
+    }
+    return null;
+  },
+
+  getFactoringQuote: async (params: {
+    flightDistanceKm: number;
+    arrivalDelayMins: number;
+    forensics: Record<string, unknown>;
+    jurisdiction?: string;
+  }) => {
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/factoring/quote`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            flight_distance_km: params.flightDistanceKm,
+            arrival_delay_mins: params.arrivalDelayMins,
+            forensics: params.forensics,
+            jurisdiction: params.jurisdiction ?? 'DGCA'
+          })
+        });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('TripShield API: Falling back to local factoring quote', err);
+      }
+    }
+    return null;
+  },
+
+  evaluateGhostHold: async (params: {
+    inboundTailDelayMins: number;
+    turnaroundBufferMins: number;
+    connectionWindowMins: number;
+    seatsRemainingOnAlternate: number;
+    rebookCost: number;
+    travellerHourlySla: number;
+    hotelOvernightCost?: number;
+    currency?: string;
+  }) => {
+    if (API_BASE_URL) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/ghost-hold/evaluate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            inbound_tail_delay_mins: params.inboundTailDelayMins,
+            turnaround_buffer_mins: params.turnaroundBufferMins,
+            connection_window_mins: params.connectionWindowMins,
+            seats_remaining_on_alternate: params.seatsRemainingOnAlternate,
+            rebook_cost: params.rebookCost,
+            traveller_hourly_sla: params.travellerHourlySla,
+            hotel_overnight_cost: params.hotelOvernightCost ?? 6000.0,
+            currency: params.currency ?? 'INR'
+          })
+        });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('TripShield API: Falling back to local ghost-hold calculation', err);
+      }
+    }
+    return null;
   }
 };
+

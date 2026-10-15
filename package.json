@@ -12,6 +12,7 @@
     "train:data": "python ml/data_generator.py",
     "train:ml": "python ml/train.py",
     "infer:ml": "python ml/infer.py",
+    "server:api": "python ml/server.py",
     "test:ml": "pytest ml/tests/ -v",
     "preview": "vite preview"
   },

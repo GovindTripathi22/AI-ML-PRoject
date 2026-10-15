@@ -3,13 +3,20 @@ import type { EvidenceSnippet, PolicyDocument } from '../types';
 import { Modal } from './Modal';
 import { ExternalLink } from 'lucide-react';
 import { INITIAL_POLICY_DOCUMENTS } from '../data/mockData';
+import { ForensicsAndFactoringCard } from './ForensicsAndFactoringCard';
 
 interface EvidenceTabProps {
   snippets: EvidenceSnippet[];
   onSelectCitation?: (citationIndex: number) => void;
+  flightNumber?: string;
+  tailNumber?: string;
 }
 
-export const EvidenceTab: React.FC<EvidenceTabProps> = ({ snippets }) => {
+export const EvidenceTab: React.FC<EvidenceTabProps> = ({ 
+  snippets,
+  flightNumber = '6E-2134',
+  tailNumber = 'VT-IKR'
+}) => {
   const [selectedDoc, setSelectedDoc] = useState<PolicyDocument | null>(null);
 
   const openDocumentModal = (documentId: string) => {
@@ -20,8 +27,14 @@ export const EvidenceTab: React.FC<EvidenceTabProps> = ({ snippets }) => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Real-World Aviation Forensics & Instant Factoring Engine */}
+      <ForensicsAndFactoringCard 
+        flightNumber={flightNumber}
+        tailNumber={tailNumber}
+      />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '8px' }}>
         <div>
           <h4 style={{ fontSize: '15px', fontWeight: 600 }}>Retrieved Statutory & Supplier Policy Evidence</h4>
           <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
