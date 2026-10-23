@@ -2,12 +2,12 @@ import React from 'react';
 
 export const ArchitecturePage: React.FC = () => {
   const techStack = [
-    { category: 'Frontend Client', tags: ['React 19', 'Vite', 'React Router v7', 'TypeScript', 'Plain CSS (Design System)', 'Lucide Icons'] },
-    { category: 'Service & State Layer', tags: ['Async Service Architecture', 'LocalStorage Persistence', 'Client-side Keyword Reranker'] },
-    { category: 'Backend Specification (Optional)', tags: ['FastAPI (Python 3.11)', 'Uvicorn ASGI', 'Pydantic v2 Models', 'Local JSON Seed Providers'] },
-    { category: 'Data & Graph Infrastructure', tags: ['Neo4j Graph Database (PNR Topology)', 'Cypher Multi-Hop Queries', 'PostgreSQL (Operational Store)'] },
-    { category: 'Disruption NLP & Retrieval', tags: ['InTravel-RoBERTa (Fine-Tuned Classifier)', 'Dense Vector Index (FAISS/BGE-base)', 'Cross-Encoder Reranker', 'DGCA CAR Corpus'] },
-    { category: 'Governance & Safety', tags: ['Human-in-the-Loop Approval Gateway', 'Mandatory Rejection Comment Trail', 'Audit Log Immutability'] }
+    { category: 'Frontend Client', tags: ['React 19', 'Vite', 'React Router v7', 'TypeScript', 'Disruption Studio', 'Lucide Icons'] },
+    { category: 'Live Microservice Bridge', tags: ['FastAPI (Python 3.12)', 'Uvicorn ASGI', 'Pydantic v2 Models', '5 REST Endpoints', 'Sub-millisecond Routing'] },
+    { category: 'Disruption ML & Big Data', tags: ['TripShield LightGBM (25k Corpus)', 'Dual Word+Char TF-IDF (20k Features)', '100% Macro-F1', '0.30ms Inference Latency'] },
+    { category: 'Aviation Forensics & Factoring', tags: ['Airline Lie-Detector (METAR + Tail Rotation)', '60-Second Gate Buyout (UPI/Virtual Card)', 'Pre-Cancellation Ghost-Holds', 'CFO Actuarial Proof'] },
+    { category: 'Data & Graph Infrastructure', tags: ['Neo4j Graph Database (PNR Topology)', 'Cypher Multi-Hop Queries', 'DGCA CAR Sec 3', 'IRCTC TDR Engine'] },
+    { category: 'Governance & Safety', tags: ['Human-in-the-Loop Gateway', 'Safe-Harbor Actuarial Bounds', 'Immutable Audit Trail', 'Dual-Mode Offline Resilience'] }
   ];
 
   return (

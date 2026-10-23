@@ -8,9 +8,11 @@ import {
   Cpu, 
   Network, 
   History, 
-  RotateCcw 
+  RotateCcw,
+  Zap 
 } from 'lucide-react';
 import { useApp } from '../context';
+import { LiveStatusBadge } from './LiveStatusBadge';
 
 export const Navbar: React.FC = () => {
   const { resetAllSystemData } = useApp();
@@ -44,6 +46,13 @@ export const Navbar: React.FC = () => {
           >
             <LayoutDashboard size={16} />
             <span>Dashboard</span>
+          </NavLink>
+          <NavLink 
+            to="/studio" 
+            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+          >
+            <Zap size={16} />
+            <span>Disruption Studio</span>
           </NavLink>
           <NavLink 
             to="/travellers" 
@@ -83,6 +92,7 @@ export const Navbar: React.FC = () => {
         </nav>
 
         <div className="nav-meta">
+          <LiveStatusBadge />
           <div className="ops-status-badge" title="Automated ingestion feed connected to DGCA, IMD and Airline GDS feeds">
             <span className="pulse-dot" aria-hidden="true" />
             <span>Ops Feed: Live</span>

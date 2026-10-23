@@ -8,7 +8,8 @@ import {
   Search, 
   Filter, 
   ArrowUpRight,
-  RefreshCw 
+  RefreshCw,
+  Zap 
 } from 'lucide-react';
 import { useApp } from '../context';
 import { SeverityBadge, IncidentStatusBadge } from '../components/Badge';
@@ -71,7 +72,16 @@ export const DashboardPage: React.FC = () => {
             Live domestic transit disruption monitoring, automated risk graphing, and agent recovery dispatch.
           </p>
         </div>
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button 
+            type="button" 
+            className="btn btn-primary btn-sm"
+            onClick={() => navigate('/studio')}
+            title="Open Disruption Studio to analyze alerts or ingest new disruptions"
+          >
+            <Zap size={13} />
+            <span>Ingest & Analyze Disruption</span>
+          </button>
           <button 
             type="button" 
             className="btn btn-secondary btn-sm"

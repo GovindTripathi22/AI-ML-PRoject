@@ -9,6 +9,7 @@ import { PolicyLibraryPage } from './pages/PolicyLibraryPage';
 import { ModelEvalPage } from './pages/ModelEvalPage';
 import { ArchitecturePage } from './pages/ArchitecturePage';
 import { AuditTrailPage } from './pages/AuditTrailPage';
+import { DisruptionStudioPage } from './pages/DisruptionStudioPage';
 import { X, CheckCircle, AlertTriangle, AlertCircle, Info } from 'lucide-react';
 
 const ToastContainer: React.FC = () => {
@@ -50,6 +51,7 @@ const AppLayout: React.FC = () => {
       <main className="main-content" role="main">
         <Routes>
           <Route path="/" element={<DashboardPage />} />
+          <Route path="/studio" element={<DisruptionStudioPage />} />
           <Route path="/incidents/:id" element={<IncidentDetailPage />} />
           <Route path="/travellers" element={<TravellersPage />} />
           <Route path="/policies" element={<PolicyLibraryPage />} />

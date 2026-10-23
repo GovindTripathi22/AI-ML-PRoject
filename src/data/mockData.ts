@@ -1776,6 +1776,14 @@ export const MODEL_EVALUATION_METRICS: ModelMetricRow[] = [
     macroF1: 0.943,
     latencyP95Ms: 82.6,
     throughputSamplesSec: 285
+  },
+  {
+    modelName: 'Production Active: TripShield InTravel-LightGBM (25k Corpus)',
+    precision: 1.000,
+    recall: 1.000,
+    macroF1: 1.000,
+    latencyP95Ms: 0.30,
+    throughputSamplesSec: 3310
   }
 ];
 

@@ -51,7 +51,13 @@ export const ModelEvalPage: React.FC = () => {
             </thead>
             <tbody>
               {MODEL_EVALUATION_METRICS.map((row, idx) => {
-                const isProduction = idx === 1;
+                const isProduction = idx === 2;
+                const statusLabel = idx === 2 ? 'Active Model' : idx === 1 ? 'Benchmark' : 'Deprecated';
+                const statusDesc = idx === 2 
+                  ? 'Production active in FastAPI endpoint (0.3ms CPU latency)' 
+                  : idx === 1 
+                  ? 'Transformer benchmark (82.6ms latency)' 
+                  : 'Historical baseline (v1.0)';
                 return (
                   <tr key={idx} style={{ backgroundColor: isProduction ? '#FAFDFB' : 'transparent' }}>
                     <td>
@@ -59,7 +65,7 @@ export const ModelEvalPage: React.FC = () => {
                         {row.modelName}
                       </div>
                       <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                        {isProduction ? 'Production active in FastAPI endpoint' : 'Historical baseline (v1.0)'}
+                        {statusDesc}
                       </div>
                     </td>
                     <td>
@@ -74,10 +80,10 @@ export const ModelEvalPage: React.FC = () => {
                       </strong>
                     </td>
                     <td>{row.latencyP95Ms} ms</td>
-                    <td>{row.throughputSamplesSec} samples/sec</td>
+                    <td>{row.throughputSamplesSec.toLocaleString()} samples/sec</td>
                     <td>
                       <Badge variant={isProduction ? 'approved' : 'neutral'}>
-                        {isProduction ? 'Active Model' : 'Deprecated'}
+                        {statusLabel}
                       </Badge>
                     </td>
                   </tr>
