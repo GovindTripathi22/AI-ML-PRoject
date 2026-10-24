@@ -17,7 +17,10 @@ import {
   Clock,
   Hash,
   Send,
-  Plus
+  Plus,
+  ChevronDown,
+  ChevronUp,
+  Flame
 } from 'lucide-react';
 import { Badge } from '../components/Badge';
 
@@ -47,6 +50,60 @@ const PRESETS = [
     label: 'Northern Railway Shatabdi 5-Hour Fog Delay',
     text: 'Northern Railway advisory: Train 12004 New Delhi–Lucknow Shatabdi Express delayed by 5 hours at Ghaziabad junction due to dense winter fog and zero visibility. IRCTC automatic TDR refund processing enabled for all passengers. Estimated revised arrival 19:30 IST.',
     icon: Train
+  }
+];
+
+/* ---------- 10 Hard Challenge Scenarios (Complex Edge Cases) ---------- */
+const HARD_CHALLENGES = [
+  {
+    title: '1. Fake Weather Claim (Airline Lie-Detector)',
+    category: 'Deception Trap',
+    text: 'DGCA CAR Alert: Flight AI-802 from DEL to BOM delayed 6 hours. Airline claiming uncontrollable bad weather, but airport METAR reports 8 km visibility with 92% peer flights on time. True cause is upstream aircraft tail VT-EXQ rotation delay.'
+  },
+  {
+    title: '2. Cryptic ICAO NOTAM Runway Closure',
+    category: 'Runway / ATC',
+    text: 'DGCA NOTAM A2241/26: VABB CSMIA Mumbai BOM secondary runway 14/32 closed due to tarmac oil spill and inspection. Flight 6E-5324 DEL to BOM delayed 5 hours. Taxiway Alpha hold in effect.'
+  },
+  {
+    title: '3. Super Cyclone Landfall Airspace Shutdown',
+    category: 'Severe Cyclone',
+    text: 'IMD Red Warning: Super Cyclonic Storm Remal making landfall. CCU Kolkata airspace suspended for 12 hours. Severe rain and 90 km/h gale wind. Air India AI-765 CCU to DEL cancelled and delayed 8 hours.'
+  },
+  {
+    title: '4. Ground Refuelling & Baggage Handlers Strike',
+    category: 'Labour Strike',
+    text: 'Airport Authority Alert: Kempegowda BLR Terminal 2 ground baggage handlers and fuel tanker operators flash strike. All departure gates closed. Akasa Air QP-1301 BLR to HYD delayed 4 hours.'
+  },
+  {
+    title: '5. Terminal Canopy Collapse & Evacuation Order',
+    category: 'Structural Hazard',
+    text: 'Emergency Safety Order: Delhi IGI DEL Terminal 1 departures suspended following structural roof canopy collapse and fire alarm. Evacuation underway. SpiceJet SG-8169 DEL to BOM delayed 7 hours.'
+  },
+  {
+    title: '6. Tarmac Confinement After Diversion',
+    category: 'Tarmac Delay',
+    text: 'AAI Alert: Flight 6E-248 from DEL to MAA diverted to BLR due to heavy thunderstorm and flooded taxiway. Aircraft held on remote apron for 5 hours. Passenger deplaning restricted.'
+  },
+  {
+    title: '7. Pilot Crew Duty Expiry Masked as ATC Delay',
+    category: 'Crew Timeout',
+    text: 'Airline Disruption SMS: IndiGo flight 6E-6177 from BOM to GOI delayed 4 hours due to pilot crew duty time limitation (FDTL expiry) following ATC ground hold. Inconvenience regretted.'
+  },
+  {
+    title: '8. Vande Bharat Express Zero-Visibility Fog Hold',
+    category: 'Railway IRCTC',
+    text: 'Northern Railway Advisory: Train 22436 New Delhi to Varanasi Vande Bharat Express held at LKO junction due to dense winter fog and zero visibility. Delayed 5 hours. Automatic IRCTC TDR refund enabled.'
+  },
+  {
+    title: '9. Runway Rubber Debris & Resurfacing NOTAM',
+    category: 'Runway Emergency',
+    text: 'DGCA NOTAM C0412/26: Cochin COK primary runway closed due to emergency rubber removal and runway resurfacing. Air India Express IX-412 COK to BLR delayed 6 hours.'
+  },
+  {
+    title: '10. Tejas Express Overhead Cable Breakdown',
+    category: 'Railway IRCTC',
+    text: 'IRCTC & Western Railway Bulletin: Train 12951 Mumbai Tejas Rajdhani Express delayed 4 hours near AMD due to overhead catenary wire snap and electrical failure. Automatic TDR refund active.'
   }
 ];
 
@@ -148,6 +205,7 @@ export const DisruptionStudioPage: React.FC = () => {
   const [jurisdiction, setJurisdiction] = useState<'DGCA' | 'IRCTC'>('DGCA');
   const [copied, setCopied] = useState<string | null>(null);
   const [promoted, setPromoted] = useState(false);
+  const [showHardChallenges, setShowHardChallenges] = useState(false);
 
   const runAnalysis = (text: string) => {
     if (!text.trim()) return;
@@ -239,6 +297,53 @@ export const DisruptionStudioPage: React.FC = () => {
               </button>
             );
           })}
+        </div>
+
+        {/* Toggle 10 Hard Challenge Scenarios */}
+        <div style={{ marginBottom: '16px' }}>
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={() => setShowHardChallenges(!showHardChallenges)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#DC2626',
+              borderColor: '#FECACA',
+              backgroundColor: '#FEF2F2'
+            }}
+          >
+            <Flame size={14} style={{ color: '#DC2626' }} />
+            <span>{showHardChallenges ? 'Hide 10 Hard Challenge Cases' : '🔥 Show 10 Hard Challenge Cases (Complex Airline Edge Cases)'}</span>
+            {showHardChallenges ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+          </button>
+
+          {showHardChallenges && (
+            <div style={{ marginTop: '10px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '8px', padding: '12px', backgroundColor: 'var(--bg-canvas)', borderRadius: 'var(--radius)', border: '1px solid var(--border-color)' }}>
+              {HARD_CHALLENGES.map((challenge, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => runAnalysis(challenge.text)}
+                  style={{ textAlign: 'left', padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '11px', height: 'auto', backgroundColor: '#FFFFFF', border: '1px solid var(--border-color)' }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{challenge.title}</span>
+                    <span style={{ fontSize: '9px', fontWeight: 700, padding: '2px 5px', borderRadius: '3px', backgroundColor: '#FEE2E2', color: '#991B1B' }}>
+                      {challenge.category}
+                    </span>
+                  </div>
+                  <span style={{ fontSize: '10px', color: 'var(--text-secondary)', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    {challenge.text}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Text Area */}
