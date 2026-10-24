@@ -28,13 +28,8 @@ export const Navbar: React.FC = () => {
       <div className="navbar-inner">
         <div className="brand-section">
           <Link to="/" className="brand-link" aria-label="TripShield Operations Console">
-            <Logo size={36} />
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span className="brand-name" style={{ lineHeight: '1.1' }}>TripShield</span>
-              <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                Passenger Protection & Recovery
-              </span>
-            </div>
+            <Logo size={32} />
+            <span className="brand-name">TripShield</span>
           </Link>
           <span className="brand-tag">v2.4</span>
         </div>
@@ -46,7 +41,7 @@ export const Navbar: React.FC = () => {
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Overview of all active travel emergencies across India"
           >
-            <LayoutDashboard size={16} />
+            <LayoutDashboard size={15} />
             <span>Dashboard</span>
           </NavLink>
           <NavLink 
@@ -54,7 +49,7 @@ export const Navbar: React.FC = () => {
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Paste any flight delay message to calculate compensation and alternative routes"
           >
-            <Zap size={16} />
+            <Zap size={15} />
             <span>Disruption Checker</span>
           </NavLink>
           <NavLink 
@@ -62,7 +57,7 @@ export const Navbar: React.FC = () => {
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="List of all company passengers, meal preferences and emergency contacts"
           >
-            <Users size={16} />
+            <Users size={15} />
             <span>Travellers</span>
           </NavLink>
           <NavLink 
@@ -70,31 +65,31 @@ export const Navbar: React.FC = () => {
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Official Indian government DGCA passenger rights and IRCTC refund rules"
           >
-            <BookOpen size={16} />
-            <span>Refund Rules (DGCA)</span>
+            <BookOpen size={15} />
+            <span>Refund Rules</span>
           </NavLink>
           <NavLink 
             to="/model-eval" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Proof of 100% Machine Learning accuracy trained on 25,000 real records"
           >
-            <Cpu size={16} />
-            <span>AI Accuracy (100%)</span>
+            <Cpu size={15} />
+            <span>AI Accuracy</span>
           </NavLink>
           <NavLink 
             to="/architecture" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Blueprint showing how data flows from weather radar to passenger rebooking"
           >
-            <Network size={16} />
-            <span>System Blueprint</span>
+            <Network size={15} />
+            <span>Architecture</span>
           </NavLink>
           <NavLink 
             to="/audit" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             title="Unalterable history log of all approved refunds and rebookings"
           >
-            <History size={16} />
+            <History size={15} />
             <span>Activity Log</span>
           </NavLink>
         </nav>
@@ -103,16 +98,17 @@ export const Navbar: React.FC = () => {
           <LiveStatusBadge />
           <div className="ops-status-badge" title="Automated ingestion feed connected to DGCA, IMD and Airline GDS feeds">
             <span className="pulse-dot" aria-hidden="true" />
-            <span>Ops Feed: Live</span>
+            <span>Ops Feed Live</span>
           </div>
           <button 
             type="button" 
             className="btn btn-secondary btn-sm"
             onClick={handleReset}
             title="Reset simulated data to seed defaults"
+            style={{ padding: '4px 8px', fontSize: '11px', display: 'flex', alignItems: 'center', gap: '4px' }}
           >
-            <RotateCcw size={13} />
-            <span>Reset Mock</span>
+            <RotateCcw size={12} />
+            <span>Reset</span>
           </button>
         </div>
       </div>
