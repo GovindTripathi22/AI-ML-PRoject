@@ -1,46 +1,48 @@
 :root {
-  --bg-canvas: #FAF8F4;
+  --bg-canvas: #F8FAFC;
   --bg-surface: #FFFFFF;
-  --bg-subtle: #F4F1EA;
-  --bg-hover: #F7F5F0;
+  --bg-subtle: #F1F5F9;
+  --bg-hover: #F8FAFC;
 
-  --text-primary: #1F2933;
-  --text-secondary: #4B5563;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
   --text-muted: #64748B;
   --text-light: #94A3B8;
 
-  --border-color: #E4E0D8;
-  --border-subtle: #EFECE6;
+  --border-color: #E2E8F0;
+  --border-subtle: #F1F5F9;
 
-  --accent: #0F766E;
-  --accent-hover: #115E59;
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
   --accent-light: #F0FDFA;
   --accent-border: #99F6E4;
 
-  --status-critical: #DC2626;
-  --status-critical-bg: #FEF2F2;
-  --status-critical-border: #FECACA;
+  --status-critical: #EF4444;
+  --status-critical-bg: #FFF1F2;
+  --status-critical-border: #FECDD3;
 
-  --status-warning: #D97706;
+  --status-warning: #F59E0B;
   --status-warning-bg: #FFFBEB;
   --status-warning-border: #FDE68A;
 
-  --status-approved: #16A34A;
-  --status-approved-bg: #F0FDF4;
-  --status-approved-border: #BBF7D0;
+  --status-approved: #10B981;
+  --status-approved-bg: #ECFDF5;
+  --status-approved-border: #A7F3D0;
 
   --status-neutral: #475569;
   --status-neutral-bg: #F8FAFC;
   --status-neutral-border: #E2E8F0;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --radius-sm: 4px;
-  --radius: 6px;
-  --radius-lg: 8px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
 
-  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
 }
 
 *, *::before, *::after {
@@ -264,8 +266,9 @@ textarea:focus-visible,
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-card);
   padding: 20px;
+  transition: all 0.2s ease;
 }
 
 .card-header {
@@ -301,6 +304,12 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+}
+.metric-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: var(--shadow-hover);
 }
 
 .metric-label {
