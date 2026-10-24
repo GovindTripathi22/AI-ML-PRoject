@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { 
-  ShieldAlert, 
   LayoutDashboard, 
   Users, 
   BookOpen, 
@@ -13,6 +12,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context';
 import { LiveStatusBadge } from './LiveStatusBadge';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const { resetAllSystemData } = useApp();
@@ -28,14 +28,15 @@ export const Navbar: React.FC = () => {
       <div className="navbar-inner">
         <div className="brand-section">
           <Link to="/" className="brand-link" aria-label="TripShield Operations Console">
-            <div className="brand-icon-box" aria-hidden="true">
-              <ShieldAlert size={20} strokeWidth={2.2} />
-            </div>
-            <div>
-              <span className="brand-name">TripShield</span>
+            <Logo size={36} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span className="brand-name" style={{ lineHeight: '1.1' }}>TripShield</span>
+              <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                Passenger Protection & Recovery
+              </span>
             </div>
           </Link>
-          <span className="brand-tag">Ops v2.4</span>
+          <span className="brand-tag">v2.4</span>
         </div>
 
         <nav className="nav-links" role="navigation" aria-label="Main Navigation">

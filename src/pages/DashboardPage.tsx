@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context';
 import { SeverityBadge, IncidentStatusBadge } from '../components/Badge';
+import { Logo } from '../components/Logo';
 
 export const DashboardPage: React.FC = () => {
   const { incidents, travellers, bookings, recoveryPlans, isLoading, refreshData } = useApp();
@@ -111,9 +112,7 @@ export const DashboardPage: React.FC = () => {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0D9488 0%, #10B981 50%, #3B82F6 100%)' }} />
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#F0FDFA', border: '1px solid #99F6E4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: '18px' }}>
-              🛡️
-            </div>
+            <Logo size={36} />
             <div>
               <h2 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
                 How TripShield Protects Travellers in 3 Simple Steps
