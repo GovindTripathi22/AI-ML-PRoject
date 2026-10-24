@@ -173,6 +173,15 @@ export const IncidentDetailPage: React.FC = () => {
             <div style={{ color: 'var(--text-muted)', fontSize: '11px' }}>{approvedPlansCount} approved</div>
           </div>
         </div>
+
+        {/* User Guidance Banner */}
+        <div style={{ padding: '12px 16px', backgroundColor: '#F0FDFA', border: '1px solid #99F6E4', borderRadius: 'var(--radius)', marginTop: '16px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{ fontSize: '20px' }}>💡</span>
+          <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+            <strong style={{ color: 'var(--text-primary)' }}>What should you do? </strong>
+            Review the suggested rebooking flights and cash compensation below. 1-click approve to book the alternate seat or issue an instant UPI payout to the stranded traveller.
+          </div>
+        </div>
       </div>
 
       {/* Tabs Navigation */}
@@ -181,9 +190,10 @@ export const IncidentDetailPage: React.FC = () => {
           type="button"
           className={`tab-btn ${activeTab === 'recovery' ? 'active' : ''}`}
           onClick={() => setActiveTab('recovery')}
+          title="Review alternative flights, train options, or instant UPI compensation payouts"
         >
           <CheckSquare size={16} />
-          <span>Recovery Plan</span>
+          <span>1. Recovery Options (Rebook / Refund)</span>
           <span className="tab-count">{incidentRecoveryPlans.length}</span>
         </button>
 
@@ -191,9 +201,10 @@ export const IncidentDetailPage: React.FC = () => {
           type="button"
           className={`tab-btn ${activeTab === 'itineraries' ? 'active' : ''}`}
           onClick={() => setActiveTab('itineraries')}
+          title="See which flights, connecting legs, and hotel stays are at risk"
         >
           <GitFork size={16} />
-          <span>Affected Itineraries & Dependency Graph</span>
+          <span>2. Flights & Hotels Graph</span>
           <span className="tab-count">{affectedTravellers.length}</span>
         </button>
 
@@ -201,9 +212,10 @@ export const IncidentDetailPage: React.FC = () => {
           type="button"
           className={`tab-btn ${activeTab === 'evidence' ? 'active' : ''}`}
           onClick={() => setActiveTab('evidence')}
+          title="See radar telemetry, NOTAM evidence, and DGCA policy rules"
         >
           <FileText size={16} />
-          <span>Policy Evidence</span>
+          <span>3. Airline Lie-Detector & Legal Proof</span>
           <span className="tab-count">{relevantSnippets.length}</span>
         </button>
       </div>

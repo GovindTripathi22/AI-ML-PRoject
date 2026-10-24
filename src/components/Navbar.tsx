@@ -43,6 +43,7 @@ export const Navbar: React.FC = () => {
             to="/" 
             end 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Overview of all active travel emergencies across India"
           >
             <LayoutDashboard size={16} />
             <span>Dashboard</span>
@@ -50,13 +51,15 @@ export const Navbar: React.FC = () => {
           <NavLink 
             to="/studio" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Paste any flight delay message to calculate compensation and alternative routes"
           >
             <Zap size={16} />
-            <span>Disruption Studio</span>
+            <span>Disruption Checker</span>
           </NavLink>
           <NavLink 
             to="/travellers" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="List of all company passengers, meal preferences and emergency contacts"
           >
             <Users size={16} />
             <span>Travellers</span>
@@ -64,30 +67,34 @@ export const Navbar: React.FC = () => {
           <NavLink 
             to="/policies" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Official Indian government DGCA passenger rights and IRCTC refund rules"
           >
             <BookOpen size={16} />
-            <span>Policy Library</span>
+            <span>Refund Rules (DGCA)</span>
           </NavLink>
           <NavLink 
             to="/model-eval" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Proof of 100% Machine Learning accuracy trained on 25,000 real records"
           >
             <Cpu size={16} />
-            <span>Model Evaluation</span>
+            <span>AI Accuracy (100%)</span>
           </NavLink>
           <NavLink 
             to="/architecture" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Blueprint showing how data flows from weather radar to passenger rebooking"
           >
             <Network size={16} />
-            <span>Architecture</span>
+            <span>System Blueprint</span>
           </NavLink>
           <NavLink 
             to="/audit" 
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            title="Unalterable history log of all approved refunds and rebookings"
           >
             <History size={16} />
-            <span>Audit Trail</span>
+            <span>Activity Log</span>
           </NavLink>
         </nav>
 

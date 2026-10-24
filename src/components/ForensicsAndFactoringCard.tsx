@@ -137,10 +137,10 @@ export const ForensicsAndFactoringCard: React.FC<ForensicsProps> = ({
         </div>
 
         <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#FFFFFF', marginBottom: '6px' }}>
-          Aviation Forensics: Airline &ldquo;Extraordinary Circumstance&rdquo; Rebuttal Engine
+          🕵️ Airline Lie-Detector: Did the airline tell the truth?
         </h3>
         <p style={{ fontSize: '12px', color: '#CBD5E1', marginBottom: '14px', lineHeight: '1.45' }}>
-          Cross-examines the carrier&apos;s claimed defense against live NOAA/IMD METAR surface observations, runway peer departure rates, and upstream aircraft tail-number rotation logs.
+          Airlines often falsely blame &ldquo;bad weather&rdquo; or &ldquo;ATC&rdquo; so they don&apos;t have to refund passengers. TripShield checks weather radar, peer runway departures, and incoming aircraft history to catch false exemptions.
         </p>
 
         {/* 3 Telemetry Evidence Cards */}
@@ -148,7 +148,7 @@ export const ForensicsAndFactoringCard: React.FC<ForensicsProps> = ({
           <div style={{ backgroundColor: 'rgba(30, 41, 59, 0.9)', padding: '12px', borderRadius: '8px', border: '1px solid #334155' }}>
             <div style={{ fontSize: '11px', color: '#94A3B8', display: 'flex', alignItems: 'center', gap: '5px' }}>
               <AlertTriangle size={12} style={{ color: '#F87171' }} />
-              Airline Claimed Excuse
+              1. What the Airline Claimed
             </div>
             <div style={{ color: '#F87171', fontWeight: 600, fontSize: '12px', marginTop: '6px', lineHeight: '1.4' }}>
               &ldquo;{airlineClaimedExcuse}&rdquo;
@@ -158,17 +158,17 @@ export const ForensicsAndFactoringCard: React.FC<ForensicsProps> = ({
           <div style={{ backgroundColor: 'rgba(30, 41, 59, 0.9)', padding: '12px', borderRadius: '8px', border: '1px solid #334155' }}>
             <div style={{ fontSize: '11px', color: '#94A3B8', display: 'flex', alignItems: 'center', gap: '5px' }}>
               <Wind size={12} style={{ color: '#34D399' }} />
-              Surface METAR Telemetry
+              2. Weather Radar Reality
             </div>
             <div style={{ color: '#34D399', fontWeight: 600, fontSize: '12px', marginTop: '6px', lineHeight: '1.4' }}>
-              {metarWindKts} kts wind &bull; {metarVisibilityKm} km vis &bull; {peerDeparturesOnTimePct}% runway peers departed on time
+              {metarWindKts} kts wind &bull; {metarVisibilityKm} km vis &bull; {peerDeparturesOnTimePct}% of peer flights departed on schedule
             </div>
           </div>
 
           <div style={{ backgroundColor: 'rgba(30, 41, 59, 0.9)', padding: '12px', borderRadius: '8px', border: '1px solid #334155' }}>
             <div style={{ fontSize: '11px', color: '#94A3B8', display: 'flex', alignItems: 'center', gap: '5px' }}>
               <Clock size={12} style={{ color: '#FBBF24' }} />
-              True Upstream Root Cause
+              3. The True Root Cause
             </div>
             <div style={{ color: '#FBBF24', fontWeight: 600, fontSize: '12px', marginTop: '6px', lineHeight: '1.4' }}>
               Inbound Tail {tailNumber} arrived {inboundTailDelayMins}m late (2 legs prior in rotational chain)

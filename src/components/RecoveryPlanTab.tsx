@@ -101,9 +101,9 @@ export const RecoveryPlanTab: React.FC<RecoveryPlanTabProps> = ({
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
         <div>
-          <h4 style={{ fontSize: '15px', fontWeight: 600 }}>Autonomous Recovery Candidates & Human Approval</h4>
+          <h4 style={{ fontSize: '15px', fontWeight: 600 }}>1-Click Rebooking & Compensation Options</h4>
           <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-            Each traveller is provided 2–3 validated recovery paths. Review cost differentials against disruption limits, preference alignment, and policy rationales before approving.
+            TripShield has prepared validated travel alternatives for each stranded passenger. Click &quot;Approve Plan&quot; to instantly issue confirmed tickets or dispatch compensation payments.
           </p>
         </div>
       </div>

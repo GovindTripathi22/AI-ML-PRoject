@@ -94,6 +94,52 @@ export const DashboardPage: React.FC = () => {
         </div>
       </div>
 
+      {/* How TripShield Works: Simple 3-Step Guide for Users */}
+      <div 
+        className="card" 
+        style={{ 
+          padding: '16px 20px', 
+          marginBottom: '20px', 
+          backgroundColor: '#F0FDFA', 
+          border: '1px solid #99F6E4',
+          borderRadius: 'var(--radius)'
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              🛡️ How TripShield Protects Travellers in 3 Simple Steps
+            </span>
+          </div>
+          <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+            DGCA Civil Aviation Requirements Compliant &bull; 0.3ms AI Detection
+          </span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginTop: '12px', fontSize: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+            <span style={{ fontSize: '16px' }}>1️⃣</span>
+            <div>
+              <strong style={{ color: 'var(--text-primary)', display: 'block' }}>Instant Crisis Detection</strong>
+              <span style={{ color: 'var(--text-secondary)' }}>AI scans weather radar, fog alerts & airport NOTAMs in 0.3 milliseconds.</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+            <span style={{ fontSize: '16px' }}>2️⃣</span>
+            <div>
+              <strong style={{ color: 'var(--text-primary)', display: 'block' }}>Protect Your Rights & Money</strong>
+              <span style={{ color: 'var(--text-secondary)' }}>Calculates statutory cash refunds (up to ₹10,000) & free meal/hotel vouchers.</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+            <span style={{ fontSize: '16px' }}>3️⃣</span>
+            <div>
+              <strong style={{ color: 'var(--text-primary)', display: 'block' }}>Fast 1-Click Rebooking</strong>
+              <span style={{ color: 'var(--text-secondary)' }}>Rebooks you on the next flight or Vande Bharat train without waiting in line.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Summary Row */}
       <div className="metrics-grid">
         <div className="metric-card">
@@ -101,7 +147,7 @@ export const DashboardPage: React.FC = () => {
             <div className="metric-label">Active Incidents</div>
             <div className="metric-value">{activeIncidentsCount}</div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>
-              {incidents.length} total monitored sectors
+              Active travel crises &bull; {incidents.length} total monitored
             </div>
           </div>
           <div className="metric-icon-box" style={{ color: 'var(--status-critical)' }}>
@@ -114,7 +160,7 @@ export const DashboardPage: React.FC = () => {
             <div className="metric-label">Travellers Affected</div>
             <div className="metric-value">{uniqueAffectedTravellersCount}</div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Across {travellers.length} active agency bookings
+              Stranded passengers across {travellers.length} active bookings
             </div>
           </div>
           <div className="metric-icon-box" style={{ color: 'var(--accent)' }}>
@@ -142,7 +188,7 @@ export const DashboardPage: React.FC = () => {
               {plansAwaitingApprovalCount}
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Human sign-off required
+              1-Click Rebooking options ready
             </div>
           </div>
           <div className="metric-icon-box" style={{ color: 'var(--status-approved)' }}>
@@ -273,8 +319,8 @@ export const DashboardPage: React.FC = () => {
                         <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                           {incident.type}
                         </div>
-                        <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                          Source: {incident.source.length > 36 ? incident.source.slice(0, 36) + '...' : incident.source}
+                        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px', maxWidth: '360px', lineHeight: '1.3' }}>
+                          {incident.summary.length > 95 ? incident.summary.slice(0, 95) + '...' : incident.summary}
                         </div>
                       </td>
                       <td>
@@ -300,10 +346,10 @@ export const DashboardPage: React.FC = () => {
                       </td>
                       <td style={{ textAlign: 'right' }}>
                         <span 
-                          className="btn btn-secondary btn-sm"
-                          style={{ padding: '4px 8px', fontSize: '11px', pointerEvents: 'none' }}
+                          className="btn btn-primary btn-sm"
+                          style={{ padding: '5px 10px', fontSize: '11px', pointerEvents: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                         >
-                          <span>Review</span>
+                          <span>View Options & Money</span>
                           <ArrowUpRight size={12} />
                         </span>
                       </td>

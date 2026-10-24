@@ -36,9 +36,9 @@ export const EvidenceTab: React.FC<EvidenceTabProps> = ({
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '8px' }}>
         <div>
-          <h4 style={{ fontSize: '15px', fontWeight: 600 }}>Retrieved Statutory & Supplier Policy Evidence</h4>
+          <h4 style={{ fontSize: '15px', fontWeight: 600 }}>Legal Clauses & Airline Rules (Evidence)</h4>
           <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-            Vector-retrieved and re-ranked policy clauses. Recovery plan recommendations cite these snippets directly by bracketed index [1], [2], [3].
+            Official DGCA regulations and airline refund policies automatically matched by AI. Each rule is cited in the traveller recovery options above.
           </p>
         </div>
         <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
